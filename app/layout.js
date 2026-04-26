@@ -7,21 +7,22 @@ export const metadata = {
   description: "Учебный сайт",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
-      <body style={{ display: "flex" }}>
-        <Sidebar />
+      <body>
+        <div className="layout">
+          <Sidebar />
 
-        <main
-          style={{
-            marginLeft: "240px",
-            padding: "20px",
-            width: "100%",
-          }}
-        >
-          {children}
-        </main>
+          <main className="main">
+            {children}
+          </main>
+        </div>
 
         <ScrollToTop />
       </body>
