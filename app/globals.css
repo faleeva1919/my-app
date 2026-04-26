@@ -1,0 +1,130 @@
+/* ===== БАЗА ===== */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f7f7f5;
+  color: #2f3437;
+}
+
+/* ===== КОНТЕЙНЕР ===== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ===== ЗАГОЛОВКИ ===== */
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* ===== ТЕКСТ ===== */
+p {
+  line-height: 1.7;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* ===== КАРТОЧКИ  ===== */
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #e6e6e6;
+}
+
+/* ===== СПИСКИ ===== */
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin: 6px 0;
+}
+
+
+pre {
+  background: #f1f3f5; 
+  color: #111; 
+  padding: 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px solid #ddd;
+}
+
+/* ===== ССЫЛКИ ===== */
+a {
+  color: #1d4ed8; /* более тёмный синий */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== КНОПКИ ===== */
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* ===== ТАБЛИЦА (если понадобится) ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+td, th {
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: #fafafa;
+}
+
+
+.scrollTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  width: 50px;
+  height: 50px;
+
+  background: #111;
+  color: white;
+
+  border: none;
+  border-radius: 50%; /* делает круг */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+.scrollTop:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
