@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -56,26 +57,36 @@ export default function Sidebar() {
           style={{ ...styles.link, marginTop: 20 }}
           onClick={() => setOpen(false)}
         >
-          <h4>Вопросы к экзамену</h4>
+          <h4>Пройти тестирование</h4>
         </Link>
+
+        <Link href="/vopros" style={{ ...styles.link, marginTop: 10 }}>
+  <h4>Вопросы к тестированию</h4>
+</Link>
       </div>
     </>
   );
 }
 const styles = {
   sidebar: {
-    width: "240px",
-    height: "100vh",
-    background: "#1e293b",
-    padding: "20px",
-    position: "fixed",
-    left: 0,
-    top: 0,
-    display: "flex",
-    flexDirection: "column",
-    transition: "transform 0.3s ease",
-    zIndex: 1000,
-  },
+  width: "240px",
+  background: "#1e293b",
+  padding: "16px",
+
+  position: "fixed",
+  top: 0,
+  left: 0,
+  bottom: 0,
+
+  display: "flex",
+  flexDirection: "column",
+
+  transition: "transform 0.3s ease",
+  zIndex: 1000,
+
+  overflowY: "scroll",
+  WebkitOverflowScrolling: "touch",
+},
 
   link: {
     padding: "6px 0",
