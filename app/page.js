@@ -1,46 +1,81 @@
-export default function Home() {
-  return (
-    <div style={styles.page}>
-      <h1 style={styles.title}>
-        Создание приложений в AppSheet
-      </h1>
+import Link from "next/link";
 
-      <div style={styles.card}>
-        <p style={{ ...styles.text, color: "white" }}>
+export default function HomePage() {
+  return (
+    <div className="container">
+      <div
+        style={{
+          background: "linear-gradient(135deg, #1e293b, #334155)",
+          color: "white",
+          padding: "50px 30px",
+          borderRadius: "20px",
+          marginBottom: "30px",
+        }}
+      >
+        <h1 style={{ color: "white", marginBottom: "10px" }}>
+          Курс по AppSheet
+        </h1>
+
+        <p style={{ fontSize: "18px", opacity: 0.9 }}>
           Этот курс лекций и практических работ позволит вам освоить современный low-code подход к разработке приложений на платформе AppSheet. Вы научитесь создавать рабочие приложения без написания кода, используя только Google Таблицы и встроенные инструменты платформы.
         </p>
       </div>
-      <p></p>
-      <p></p>
-      <p></p>
-      <div style={styles.card}>
-        <p style={{ ...styles.text, color: "white" }}>
-          Изучайте лекции последовательно — материал каждой следующей лекции опирается на предыдущие. После каждой лекции выполняйте соответствующую практическую работу. Не пропускайте контрольные вопросы — они помогут закрепить материал перед практикой.
-        </p>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "20px",
+        }}
+      >
+        <div className="card">
+          <h2>📖 Лекции</h2>
+          <p>
+            Теоретические материалы по low-code разработке
+            и работе с AppSheet.
+          </p>
+
+          <Link href="/lecture/1">
+            Перейти к лекциям
+          </Link>
+        </div>
+
+        <div className="card">
+          <h2>💻 Практические работы</h2>
+          <p>
+            Практика создания приложений,
+            формул, ботов и интерфейсов.
+          </p>
+
+          <Link href="/practice/1">
+            Открыть практические работы
+          </Link>
+        </div>
+
+        <div className="card">
+          <h2>📚 Вопросы к экзамену</h2>
+          <p>
+            Полный список тестовых вопросов
+            для подготовки к итоговому тестированию.
+          </p>
+
+          <Link href="/vopros">
+            Открыть вопросы
+          </Link>
+        </div>
+
+        <div className="card">
+          <h2>📝 Тестирование</h2>
+          <p>
+            Пройди случайный тест из 30 вопросов
+            с таймером и подсчётом результата.
+          </p>
+
+          <Link href="/exam">
+            Начать тест
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
-
-const styles = {
-  page: {
-    padding: "40px",
-  },
-  title: {
-    textAlign: "center",
-    fontSize: "32px",
-    marginBottom: "40px",
-  },
-  card: {
-    maxWidth: "900px",
-    margin: "0 auto",
-    padding: "20px",
-    border: "1px solid #334155",
-    borderRadius: "12px",
-    background: "#1e293b",
-  },
-  text: {
-    fontSize: "18px",
-    lineHeight: "1.6",
-  },
-};

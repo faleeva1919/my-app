@@ -14,13 +14,72 @@ export default async function Practice({ params }) {
       {id === "7" && <Practice7 />}
       {id === "8" && <Practice8 />}
 
-      <div className="card">
-        <Link href={`/lecture/${id}`}>⬅ К лекции</Link>
-      </div>
+      {/* НАВИГАЦИЯ */}
 
-      <div className="card">
-        <Link href="/">На главную</Link>
-      </div>
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "14px",
+    marginTop: "32px",
+    marginBottom: "14px",
+  }}
+>
+  {/* ПРЕДЫДУЩАЯ */}
+  {Number(id) > 1 ? (
+    <Link
+      href={`/practice/${Number(id) - 1}`}
+      style={navStyles.button}
+    >
+      Предыдущая практика
+    </Link>
+  ) : (
+    <div style={{ ...navStyles.button, opacity: 0.5 }}>
+      Предыдущая практика
+    </div>
+  )}
+
+  {/* СЛЕДУЮЩАЯ */}
+  {Number(id) < 8 ? (
+    <Link
+      href={`/practice/${Number(id) + 1}`}
+      style={navStyles.button}
+    >
+      Следующая практика
+    </Link>
+  ) : (
+    <div style={{ ...navStyles.button, opacity: 0.5 }}>
+      Следующая практика
+    </div>
+  )}
+</div>
+
+{/* К ЛЕКЦИИ */}
+<Link
+  href={`/lecture/${id}`}
+  style={{
+    ...navStyles.button,
+    width: "100%",
+    marginBottom: "14px",
+    boxSizing: "border-box",
+  }}
+>
+  К лекции
+</Link>
+
+{/* НА ГЛАВНУЮ */}
+<Link
+  href="/"
+  style={{
+    ...navStyles.button,
+    width: "100%",
+    boxSizing: "border-box",
+  }}
+>
+  На главную
+</Link>
+
+
     </div>
   );
 }
@@ -1093,3 +1152,30 @@ function Practice8() {
     </>
   );
 }
+
+const navStyles = {
+  button: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    minHeight: "56px",
+    padding: "0 20px",
+
+    border: "1px solid #dbe4ff",
+    borderRadius: "14px",
+
+    textDecoration: "none",
+    color: "#1e293b",
+
+    fontSize: "16px",
+    fontWeight: "600",
+
+    background: "white",
+
+    boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+
+    transition: "all 0.2s ease",
+    cursor: "pointer",
+  },
+};

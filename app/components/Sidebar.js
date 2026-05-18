@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 
@@ -9,24 +10,41 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* КНОПКА ОТКРЫТИЯ */}
-      <button style={styles.burger} onClick={() => setOpen(!open)}>
+      {/* КНОПКА */}
+      <button
+        onClick={() => setOpen(!open)}
+        style={styles.burger}
+      >
         ☰
       </button>
 
-      {/* ЗАТЕМНЕНИЕ (по желанию) */}
-      {open && <div style={styles.overlay} onClick={() => setOpen(false)} />}
+      {/* ЗАТЕМНЕНИЕ */}
+      {open && (
+        <div
+          style={styles.overlay}
+          onClick={() => setOpen(false)}
+        />
+      )}
 
       {/* SIDEBAR */}
       <div
         style={{
           ...styles.sidebar,
-          transform: open ? "translateX(0)" : "translateX(-100%)",
+          transform: open
+            ? "translateX(0)"
+            : "translateX(-100%)",
         }}
       >
-        <h2 style={{ marginBottom: 20, color: "white" }}>Курс</h2>
+        <Link
+          href="/"
+          style={styles.logo}
+          onClick={() => setOpen(false)}
+        >
+          📘 Главная
+        </Link>
 
-        <h4 style={{ color: "white" }}>Лекционный материал</h4>
+        <h3 style={styles.title}>Лекционный материал</h3>
+
         {items.map((id) => (
           <Link
             key={id}
@@ -38,9 +56,8 @@ export default function Sidebar() {
           </Link>
         ))}
 
-        <h4 style={{ marginTop: 20, color: "white" }}>
-          Практические работы
-        </h4>
+        <h3 style={styles.title}>Практические работы</h3>
+
         {items.map((id) => (
           <Link
             key={id}
@@ -53,45 +70,60 @@ export default function Sidebar() {
         ))}
 
         <Link
-          href="/exam"
-          style={{ ...styles.link, marginTop: 20 }}
+          href="/vopros"
+          style={styles.link}
           onClick={() => setOpen(false)}
         >
-          <h4>Пройти тестирование</h4>
+          📚 Вопросы к тестированию
         </Link>
 
-        <Link href="/vopros" style={{ ...styles.link, marginTop: 10 }}>
-  <h4>Вопросы к тестированию</h4>
-</Link>
+        <Link
+          href="/exam"
+          style={styles.link}
+          onClick={() => setOpen(false)}
+        >
+          📝 Пройти тестирование
+        </Link>
       </div>
     </>
   );
 }
+
 const styles = {
   sidebar: {
-  width: "240px",
-  background: "#1e293b",
-  padding: "16px",
+    width: "260px",
+    height: "100vh",
+    background: "#1e293b",
+    padding: "20px",
+    position: "fixed",
+    left: 0,
+    top: 0,
+    display: "flex",
+    flexDirection: "column",
+    transition: "transform 0.3s ease",
+    zIndex: 1000,
+    overflowY: "auto",
+  },
 
-  position: "fixed",
-  top: 0,
-  left: 0,
-  bottom: 0,
+  logo: {
+    color: "white",
+    fontSize: "24px",
+    fontWeight: "700",
+    textDecoration: "none",
+    marginBottom: "20px",
+  },
 
-  display: "flex",
-  flexDirection: "column",
-
-  transition: "transform 0.3s ease",
-  zIndex: 1000,
-
-  overflowY: "scroll",
-  WebkitOverflowScrolling: "touch",
-},
+  title: {
+    color: "#cbd5e1",
+    marginTop: "20px",
+    marginBottom: "10px",
+  },
 
   link: {
-    padding: "6px 0",
+    padding: "8px 0",
     color: "white",
     textDecoration: "none",
+    fontSize: "16px",
   },
 
   burger: {
@@ -103,8 +135,8 @@ const styles = {
     background: "#1e293b",
     color: "white",
     border: "none",
-    padding: "8px 12px",
-    borderRadius: "6px",
+    padding: "10px 14px",
+    borderRadius: "10px",
     cursor: "pointer",
   },
 
